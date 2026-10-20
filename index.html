@@ -1,1 +1,273 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>SUPERVECTAR PELIS ESPAÑOLAS</title>
 
+<style>
+:root{
+  --bg:#ffffff;
+  --card:#f5f5f5;
+  --muted:#666;
+  --highlight:#ff0000;
+  --font-size:16px;
+}
+
+body{
+  font-family:Inter,system-ui;
+  background:linear-gradient(180deg,#ffffff 0%,#f2f2f2 100%);
+  color:#111;
+  margin:0;
+  padding:16px;
+  font-size: var(--font-size);
+  overflow-x:hidden;
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:20px;
+  margin:0;
+  color:var(--highlight);
+  font-weight:900;
+  text-shadow:0 0 6px rgba(255,0,0,0.3);
+}
+
+input[type=search], select{
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.2);
+  background:var(--highlight);
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+}
+
+/* ✅ PLACEHOLDER EN BLANCO */
+input[type=search]::placeholder{
+  color:#fff;
+  opacity:1;
+}
+
+h2{
+  margin-top:24px;
+  color:var(--highlight);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+  scroll-behavior:smooth;
+  overflow-x:auto;
+}
+
+.card{
+  cursor:pointer;
+  border-radius:8px;
+  overflow:hidden;
+  outline:none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background:var(--card);
+}
+
+.card:hover, .card:focus{
+  transform: scale(1.05);
+  box-shadow:0 8px 20px rgba(255,0,0,0.4);
+}
+
+.card .img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.card .title{
+  font-weight:700;
+  font-size:14px;
+  margin-top:4px;
+}
+
+.card .meta{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:2px;
+}
+
+.pagination{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin-top:12px;
+}
+
+.pagination button{
+  padding:10px 14px;
+  border-radius:6px;
+  border:1px solid #111;
+  background:transparent;
+  color:#111;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.pagination button.active{
+  background:var(--highlight);
+  color:#fff;
+}
+
+.pagination button:hover, .pagination button:focus{
+  background:var(--highlight);
+  color:#fff;
+  outline:none;
+}
+
+.grid::-webkit-scrollbar{
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="https://i.ibb.co/7dGjZb80/6.jpg" style="height:42px;width:42px;border-radius:50%;object-fit:cover;">
+    <div><h1>SUPERVECTAR PELIS ESPAÑOLAS</h1></div>
+  </div>
+
+  <div class="controls" style="display:flex;gap:8px;flex-wrap:wrap;">
+    <input id="search" type="search" placeholder="Buscar...">
+
+    <select id="genre-filter">
+      <option value="all">Género</option>  
+      <option value="Acción">Acción</option>	  
+      <option value="Comedia española">Comedia española</option>
+      <option value="Comedia">Comedia</option>
+      <option value="Drama">Drama</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Thriller">Thriller</option>	  
+      <option value="Terror">Terror</option>
+      <option value="Retro">Retro</option>
+      <option value="Animacion">Animacion</option>	  
+    </select>
+
+    <select id="filterYear" style="width:100px">
+      <option value="">Año</option>
+    </select>
+  </div>
+</header>
+
+<div id="notice">
+  ⚠️ Para acceder a algunas webs necesitas estar conectado a un servidor VPN:
+  <a href="https://one.one.one.one/es-ES/" target="_blank">Descargar aqui VPN WARP 1.1.1.1</a> 
+
+</div>
+
+<main>
+  <h2>Películas</h2>
+  <div id="movies-grid" class="grid"></div>
+  <div id="movies-pagination" class="pagination"></div>
+</main>
+
+<script>
+const mediaData = [
+  { id:'torrentepresi', title:'Torrente presidente', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/torrente%20presidente.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/T/Torrente%20Presidente%20(HDR)%202026.mp4'},      
+
+  { id:'aidayvuelta', title:'Aida y vuelta', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/A%C3%ADda%20y%20vuelta.jpg', link:'https://ok.ru/video/18749700639232'},  
+  { id:'aidayvueltacr', title:'Aida y vuelta capitulo regalo', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/A%C3%ADda%20y%20vuelta.jpg', link:'https://ok.ru/video/15420322875904'},  
+  { id:'lqsa200', title:'La que se avecina 200', year:2025, genre:'Comedia española', poster:'https://media.vandalsports.com/i/620x882/10-2025/20251024153556_1.jpg', link:'https://ok.ru/video/19056820161024'},        
+  { id:'pajaresesteso', title:'Pajares y esteso (saga)', year:1978, genre:'Retro', poster:'https://www.themoviedb.org/t/p/w1280/iDZHaEZacxIlcng9sRfiDd6uS0d.jpg', link:'https://supervectar-coder.github.io/VERPAJARESESTESO/'},      
+ 
+ { id:'3metros', title:'3 metros sobre el cielo', year:2010, genre:'Drama', poster:'https://img.webme.com/pic/o/oscaradaynet/Tres%20metros%20sobre%20el%20cielo.jpg', link:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/T/Tres%20metros%20sobre%20el%20cielo%20(HD).mp4'},      
+  { id:'tengoganas', title:'Tengo ganas de ti', year:2012, genre:'Drama', poster:'https://img.webme.com/pic/o/oscaradaynet/Tengo%20ganas%20de%20ti.jpg', link:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/T/Tengo%20ganas%20de%20ti%20(HD).mp4'},      
+
+];
+
+let itemsPerPage = 200; 
+let moviePage = 1;
+let filteredData = mediaData;
+let movieFocus = 0;
+
+const searchEl = document.getElementById('search');
+const genreEl = document.getElementById('genre-filter');
+const yearEl = document.getElementById('filterYear');
+const moviesEl = document.getElementById('movies-grid');
+const moviesPagEl = document.getElementById('movies-pagination');
+
+[...new Set(mediaData.map(i=>i.year))].sort((a,b)=>b-a).forEach(y=>{
+  const o=document.createElement('option');
+  o.value=y;
+  o.textContent=y;
+  yearEl.appendChild(o);
+});
+
+function renderMovies(data){
+  const movies = data;
+  const totalPages = Math.ceil(movies.length/itemsPerPage) || 1;
+  if(moviePage>totalPages) moviePage=totalPages;
+
+  const start = (moviePage-1)*itemsPerPage;
+  const end = start + itemsPerPage;
+
+  moviesEl.innerHTML='';
+  movies.slice(start,end).forEach((item)=>{
+    const div=document.createElement('div');
+    div.className='card';
+    div.tabIndex=0;
+    div.innerHTML=`
+      <img class="img" src="${item.poster}">
+      <div class="info">
+        <div class="title">${item.title}</div>
+        <div class="meta">${item.year} • ${item.genre}</div>
+      </div>`;
+    div.onclick=()=>window.open(item.link,'_blank');
+    moviesEl.appendChild(div);
+  });
+
+  moviesPagEl.innerHTML='';
+  for(let i=1;i<=totalPages;i++){
+    const btn=document.createElement('button');
+    btn.textContent=i;
+    if(i===moviePage) btn.classList.add('active');
+    btn.onclick=()=>{
+      moviePage=i;
+      movieFocus=0;
+      renderMovies(filteredData);
+    };
+    moviesPagEl.appendChild(btn);
+  }
+}
+
+function applyFilters(){
+  const q = searchEl.value.toLowerCase();
+  const genre = genreEl.value;
+  const year = yearEl.value;
+
+  filteredData = mediaData.filter(m=>
+    (genre==='all'||m.genre===genre) &&
+    (!year||String(m.year)===year) &&
+    m.title.toLowerCase().includes(q)
+  );
+
+  moviePage=1;
+  movieFocus=0;
+  renderMovies(filteredData);
+}
+
+searchEl.oninput=genreEl.onchange=yearEl.onchange=applyFilters;
+
+renderMovies(mediaData);
+</script>
+
+</body>
+</html>
