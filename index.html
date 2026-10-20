@@ -182,13 +182,21 @@ h2{
 <script>
 const mediaData = [
   { id:'torrentepresi', title:'Torrente presidente', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/torrente%20presidente.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/T/Torrente%20Presidente%20(HDR)%202026.mp4'},      
-
+  { id:'haciendoamigos', title:'Haciendo amigos', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/17.10.2026/Haciendo%20amigos.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/H/Haciendo%20amigos.mp4'},      
+  { id:'cadadia', title:'Cada dia nace un listo', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/17.10.2026/Cada%20d%C3%ADa%20nace%20un%20listo.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/C/Cada%20d%C3%ADa%20nace%20un%20listo.mp4'},      
+  { id:'tresdemas', title:'Tres de mas', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/17.10.2026/Tres%20de%20m%C3%A1s.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/T/Tres%20de%20m%C3%A1s.mp4'},      
+  { id:'pequeños', title:'Pequeños calvarios', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/peque%C3%B1os%20calvarios.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/P/Peque%C3%B1os%20calvarios%20(HDR)%202026.mp4'},      
+  { id:'nicon', title:'Ni contigo ni sin mi', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/ni%20contigo%20ni%20sin%20mi.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/N/Ni%20contigo%20ni%20sin%20m%C3%AD%20(HDR)%202026.mp4'},      
+  { id:'gracias', title:'Gracias equipo', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/13.09.2026/Gracias%20equipo.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/G/Gracias%20equipo%20(HDR).mp4'},      
+  { id:'beneton2', title:'La fanilia beneton 2', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/la%20familia%20benetton%202.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/L/La%20familia%20Benet%C3%B3n%202%20(HDR).mp4'},      
+  { id:'abuela', title:'Abuela tremenda', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/ABUELA%20TREMENDA.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/A/Abuela%20Tremenda%20(HDR).mp4'},      
+  { id:'castigo', title:'Castigo divino', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/Castigo%20divino.jpg', link:'https://filedn.com/ldXVm4wO7JdkpAf1xjDEu6B/ESPA%C3%91OL/C/Castigo%20divino%20(HDR).mp4'},      
+        
   { id:'aidayvuelta', title:'Aida y vuelta', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/A%C3%ADda%20y%20vuelta.jpg', link:'https://ok.ru/video/18749700639232'},  
   { id:'aidayvueltacr', title:'Aida y vuelta capitulo regalo', year:2026, genre:'Comedia española', poster:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/000PORTADAS/A%C3%ADda%20y%20vuelta.jpg', link:'https://ok.ru/video/15420322875904'},  
   { id:'lqsa200', title:'La que se avecina 200', year:2025, genre:'Comedia española', poster:'https://media.vandalsports.com/i/620x882/10-2025/20251024153556_1.jpg', link:'https://ok.ru/video/19056820161024'},        
   { id:'pajaresesteso', title:'Pajares y esteso (saga)', year:1978, genre:'Retro', poster:'https://www.themoviedb.org/t/p/w1280/iDZHaEZacxIlcng9sRfiDd6uS0d.jpg', link:'https://supervectar-coder.github.io/VERPAJARESESTESO/'},      
- 
- { id:'3metros', title:'3 metros sobre el cielo', year:2010, genre:'Drama', poster:'https://img.webme.com/pic/o/oscaradaynet/Tres%20metros%20sobre%20el%20cielo.jpg', link:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/T/Tres%20metros%20sobre%20el%20cielo%20(HD).mp4'},      
+  { id:'3metros', title:'3 metros sobre el cielo', year:2010, genre:'Drama', poster:'https://img.webme.com/pic/o/oscaradaynet/Tres%20metros%20sobre%20el%20cielo.jpg', link:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/T/Tres%20metros%20sobre%20el%20cielo%20(HD).mp4'},      
   { id:'tengoganas', title:'Tengo ganas de ti', year:2012, genre:'Drama', poster:'https://img.webme.com/pic/o/oscaradaynet/Tengo%20ganas%20de%20ti.jpg', link:'https://filedn.com/lTs3E9lEzCxftG4kMyikVWJ/T/Tengo%20ganas%20de%20ti%20(HD).mp4'},      
 
 ];
